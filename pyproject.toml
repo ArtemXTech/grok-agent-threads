@@ -1,0 +1,24 @@
+[project]
+name = "grok-agent-threads"
+version = "0.3.0"
+description = "An MCP server that lets another agent (Grok Bot, ChatGPT, Codex) list, read, search, message and start your Claude Code chats and Codex threads."
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.11"
+dependencies = [
+    "claude-agent-sdk>=0.2.178",
+    "mcp>=1.20,<2",
+]
+
+[project.scripts]
+grok-agent-threads = "grok_agent_threads.server:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["grok_agent_threads"]
+
+[dependency-groups]
+dev = ["pytest>=8"]
